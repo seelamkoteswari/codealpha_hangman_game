@@ -12,11 +12,11 @@ def choose_word(mode):
     elif mode == "hard":
         return random.choice(hard_words)
     else:
-        print("Invalid difficulty, defaulting to 'easy'")
-        return random.choice(easy_words)
+        print("Invalid mode, defaulting to 'medium'")
+        return random.choice(medium)
 
 def play_hangman():
-    # Ask for difficulty
+
     print("\nChoose mode: Easy / Medium / Hard")
     mode = input("Enter mode: ").lower()
 
@@ -35,7 +35,7 @@ def play_hangman():
         
         guess = input("Guess a letter: ").lower()
 
-        # Validate input
+    
         if len(guess) != 1 or not guess.isalpha():
             print("❌ Please enter a single letter.")
             continue
@@ -54,16 +54,14 @@ def play_hangman():
             print("❌ Wrong guess.")
             incorrect_guesses += 1
 
-    # End of game result
+    
     if "_" not in guessed_word:
         print("\n🎉 Congratulations! You guessed the word:", word)
     else:
-        print("\n💀 Game Over! The word was:", word)
-
-# Main game loop with replay
+        print("\n don't worry! You'll get it next time. The word is:", word)
 while True:
     play_hangman()
     again = input("\n🔁 Do you want to play again? (yes/no): ").lower()
     if again != "yes":
-        print("👋 Thanks for playing Hangman. Goodbye!")
+        print("👋 Thanks for playing . Goodbye!")
         break
